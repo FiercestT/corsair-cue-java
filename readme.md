@@ -8,7 +8,7 @@ Originally created by https://github.com/allanmc/java-cue-sdk and modified by ht
 ### Installation
 Currently, you can add the jar manually to the classpath from the releases. I will be making a maven repo for it soon.
 
-###Building
+### Building
 On every build task, an updated version of the SDK will be downloaded and added to the resource folder. Ensure that JNA is included in the JAR as issues will arise without it.
 
 ### Usage Example
