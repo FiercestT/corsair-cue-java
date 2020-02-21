@@ -3,15 +3,17 @@ Corsair CUE SDK Wrapper for Java
 #### What is It?
 
 A Java Wrapper to connect to the Corsair ICUE (CUE) SDK. Control your corsair lighting from Java! Migrated to Gradle.
-Originally created by https://github.com/allanmc/java-cue-sdk and modified by https://github.com/hyphz/java-cue-sdk. 
+Originally created by [allanmc](https://github.com/allanmc/java-cue-sdk) and modified by [hyphz](https://github.com/hyphz/java-cue-sdk). 
 
 ### Installation
-Currently, you can add the jar manually to the classpath from the releases. I will be making a maven repo for it soon.
+Currently, you can add the jar manually to the classpath from the [releases](https://github.com/FiercestT/corsair-cue-java/releases). I will be making a maven repo for it soon.
 
 ### Building
 On every build task, an updated version of the SDK will be downloaded and added to the resource folder. Ensure that JNA is included in the JAR as issues will arise without it.
 
-### Usage Example
+The project now uses Lombok, follow this [this](https://www.baeldung.com/lombok-ide) guide to configure it with your IDE.
+
+### Quick Start Example
 ```Java
 package ca.fiercest.test;
 
@@ -84,3 +86,7 @@ Retrieve the color of a specified lighting zone.
 
  * **Parameters:** `ledid` — LedId zone (see LedId enum)
  * **Returns:** `java.awt.Color` - LED color
+
+###Todo
+- Add more native methods (PR's <3)
+- Add a public maven repo.
