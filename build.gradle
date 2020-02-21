@@ -29,6 +29,14 @@ dependencies {
     configurations.compile.extendsFrom(configurations.extraLibs)
 }
 
+jar {
+    //Include all resources in the Jar.
+    from("src/main/resources") {
+        include "**/*.*"
+    }
+    from(configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }) {}
+}
+
 /**
  * Gets the Cue SDK and moves it to the resources folder
  */
