@@ -46,47 +46,6 @@ public class CueSDKExample
 }
 
 ```````
-## Reference
-###### `public CueSDK()`
-Instantiates a new CueSDK, and establishes a connection to the Corsair SDK with shared control.
-
-###### `public CueSDK(boolean exclusiveLightingControl)`
-Instantiates a new CueSDK, and establishes a connection to the Corsair SDK with shared or exclusive control.
-
- * **Parameters:** `exclusiveLightingControl` — Whether exclusive light control is needed or not.
-
-###### `public int getDeviceCount()`
-Get the number of connected devices compatible with the Corsair CUE SDK.
-
- * **Returns:** number of devices
-
-###### `public DeviceInfo getDeviceInfo(int deviceIndex)`
-Retrieve information about a connected device.
-
- * **Parameters:** `deviceIndex` — Index of the connected device to get information about
- * **Returns:** device information
-
-###### `public List<LedPosition> getLedPositions()`
-Retrieve a list of available LED positions, including their id and physical properties.
-
- * **Returns:** list of LED details
-
-###### `public void setLedsColors(Collection<LedColor> ledColors)`
-Set the color af several LED at the same time.
-
- * **Parameters:** `ledColors` — List of LED identifiers and colors
-
-###### `public void setLedColor(LedColor ledColor)`
-Set the color of a single LED.
-
- * **Parameters:** `ledColor` — LED identifier and color
-
-###### `public Color getLedColor(LedId ledid)`
-Retrieve the color of a specified lighting zone.
-
- * **Parameters:** `ledid` — LedId zone (see LedId enum)
- * **Returns:** `java.awt.Color` - LED color
-
 ### Todo
 - Add more native methods (PR's <3)
 - Add a public maven repo.
