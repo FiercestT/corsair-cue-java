@@ -13,6 +13,10 @@ On every build task, an updated version of the SDK will be downloaded and added 
 
 The project now uses Lombok, follow this [this](https://www.baeldung.com/lombok-ide) guide to configure it with your IDE.
 
+### Documentation
+
+[See the wiki.](https://github.com/FiercestT/corsair-cue-java/wiki)
+
 ### Quick Start Example
 ```Java
 package ca.fiercest.test;
