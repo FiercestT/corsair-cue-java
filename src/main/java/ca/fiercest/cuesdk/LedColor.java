@@ -1,10 +1,7 @@
 package ca.fiercest.cuesdk;
 
 import ca.fiercest.cuesdk.enums.LedId;
-import ca.fiercest.cuesdk.jna.CorsairLedColor;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 
 import java.awt.*;
 

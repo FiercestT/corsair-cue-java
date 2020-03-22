@@ -2,17 +2,17 @@ package ca.fiercest.cuesdk;
 
 import ca.fiercest.cuesdk.enums.CorsairError;
 import ca.fiercest.cuesdk.enums.LedId;
-import ca.fiercest.cuesdk.jna.*;
 
 import java.awt.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.stream.Collectors;
 
 public class CueSDK
 {
-    private final CueSDKLibrary instance;
+    private final CueSDKLibraryOld instance;
 
     /**
      * Instantiates a new CueSDK, and establishes a connection to the Corsair SDK with shared control.
@@ -28,7 +28,7 @@ public class CueSDK
      */
     public CueSDK(boolean exclusiveLightingControl)
     {
-        instance = CueSDKLibrary.INSTANCE;
+        instance = CueSDKLibraryOld.INSTANCE;
         final CorsairProtocolDetails.ByValue protocolDetails = instance.CorsairPerformProtocolHandshake();
 
         if (protocolDetails.serverProtocolVersion == 0)
@@ -43,7 +43,7 @@ public class CueSDK
 
         if (exclusiveLightingControl)
         {
-            final byte ret = instance.CorsairRequestControl(CueSDKLibrary.CorsairAccessMode.CAM_ExclusiveLightingControl);
+            final byte ret = instance.CorsairRequestControl(CueSDKLibraryOld.CorsairAccessMode.CAM_ExclusiveLightingControl);
             if (ret != 1)
                 handleError();
         }

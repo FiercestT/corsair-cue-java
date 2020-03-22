@@ -1,5 +1,8 @@
 package ca.fiercest.cuesdk.enums;
 
+/**
+ * Available Physical Layouts for Keyboards
+ */
 public enum PhysicalLayout
 {
     CPL_Invalid,

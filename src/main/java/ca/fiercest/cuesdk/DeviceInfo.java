@@ -4,7 +4,6 @@ import ca.fiercest.cuesdk.enums.DeviceCaps;
 import ca.fiercest.cuesdk.enums.DeviceType;
 import ca.fiercest.cuesdk.enums.LogicalLayout;
 import ca.fiercest.cuesdk.enums.PhysicalLayout;
-import ca.fiercest.cuesdk.jna.CorsairDeviceInfo;
 import lombok.Getter;
 
 @Getter

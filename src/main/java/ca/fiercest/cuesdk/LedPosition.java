@@ -1,7 +1,6 @@
 package ca.fiercest.cuesdk;
 
 import ca.fiercest.cuesdk.enums.LedId;
-import ca.fiercest.cuesdk.jna.CorsairLedPosition;
 import lombok.Data;
 
 @Data

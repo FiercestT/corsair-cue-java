@@ -1,5 +1,8 @@
 package ca.fiercest.cuesdk.enums;
 
+/**
+ * Logical layouts for Keyboards
+ */
 public enum LogicalLayout
 {
     CLL_Invalid,

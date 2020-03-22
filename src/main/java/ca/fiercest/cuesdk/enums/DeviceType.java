@@ -1,5 +1,8 @@
 package ca.fiercest.cuesdk.enums;
 
+/**
+ * Available Device Types.
+ */
 public enum DeviceType
 {
     CDT_Unknown,
@@ -9,7 +12,9 @@ public enum DeviceType
     CDT_MouseMat,
     CDT_HeadsetStand,
     CDT_CommanderPro,
-    CDT_LightingNodePro;
+    CDT_LightingNodePro,
+    CDT_MemoryModule,
+    CDT_Cooler;
 
     public static DeviceType byOrdinal(int ordinal)
     {
