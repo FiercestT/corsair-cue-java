@@ -11,7 +11,7 @@ import java.util.List;
 @NoArgsConstructor
 public class JNACorsairDeviceConnectionStatusChangedEvent extends Structure
 {
-    public byte[] deviceId = new byte[(CueSDKLibraryOld.CORSAIR_DEVICE_ID_MAX)];
+    public byte[] deviceId = new byte[(CueSDKLibrary.CORSAIR_DEVICE_ID_MAX)];
     public boolean isConnected;
 
     protected List<String> getFieldOrder()

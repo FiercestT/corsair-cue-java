@@ -1,6 +1,5 @@
 package ca.fiercest.cuesdk.jna;
 
-import ca.fiercest.cuesdk.enums.LedId;
 import com.sun.jna.Structure;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -12,7 +11,7 @@ import java.util.List;
 @NoArgsConstructor
 public class JNACorsairLedPosition extends Structure
 {
-    public LedId ledId;
+    public int ledId;
     public double top;
     public double left;
     public double height;

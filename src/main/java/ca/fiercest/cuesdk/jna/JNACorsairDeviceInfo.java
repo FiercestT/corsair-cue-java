@@ -19,7 +19,7 @@ public class JNACorsairDeviceInfo extends Structure
     public int capsMask;
     public int ledsCount;
     public JNACorsairChannelsInfo channels;
-    public byte[] deviceId = new byte[(CueSDKLibraryOld.CORSAIR_DEVICE_ID_MAX)];
+    public byte[] deviceId = new byte[(CueSDKLibrary.CORSAIR_DEVICE_ID_MAX)];
 
     protected List<String> getFieldOrder()
     {
