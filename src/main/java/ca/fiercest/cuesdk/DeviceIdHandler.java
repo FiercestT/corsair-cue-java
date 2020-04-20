@@ -22,7 +22,12 @@ public final class DeviceIdHandler
 
     public static byte[] getDeviceId(CorsairDevice device)
     {
-        return device.deviceId;
+        return device.getDeviceId();
+    }
+
+    public static void Remove(byte[] id)
+    {
+        deviceMap.remove(convert(id));
     }
 
     private static String convert(byte[] id)

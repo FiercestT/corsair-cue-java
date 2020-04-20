@@ -11,6 +11,7 @@ import java.util.List;
 @NoArgsConstructor
 public class JNACorsairLedColor extends Structure
 {
+    public int ledId;
     // 0-255
     public int r;
     public int g;
@@ -18,7 +19,7 @@ public class JNACorsairLedColor extends Structure
 
     protected List<String> getFieldOrder()
     {
-        return Arrays.asList("r", "g", "b");
+        return Arrays.asList("ledId", "r", "g", "b");
     }
 
     public static class ByReference extends JNACorsairLedColor implements Structure.ByReference {}

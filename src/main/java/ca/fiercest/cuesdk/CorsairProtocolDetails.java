@@ -2,8 +2,10 @@ package ca.fiercest.cuesdk;
 
 import ca.fiercest.cuesdk.jna.JNACorsairProtocolDetails;
 import lombok.Getter;
+import lombok.ToString;
 
 @Getter
+@ToString
 public class CorsairProtocolDetails extends FrontendObject<JNACorsairProtocolDetails>
 {
     private String sdkVersion;

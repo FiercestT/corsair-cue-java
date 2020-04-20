@@ -4,7 +4,6 @@ import com.sun.jna.Callback;
 import com.sun.jna.Library;
 import com.sun.jna.Native;
 import com.sun.jna.Pointer;
-import lombok.NonNull;
 
 import java.io.File;
 import java.io.IOException;
@@ -15,11 +14,11 @@ import java.io.IOException;
 public interface CueSDKLibrary extends Library
 {
 	String JNA_LIBRARY_NAME = "CueSDK";
-	@NonNull CueSDKLibrary INSTANCE = LoadInstance();
+	CueSDKLibrary INSTANCE = LoadInstance();
 
 	/**
 	 * Load the CueSDKLibrary instance from JNA.
-	 * @return CueSDKLibrary Library.
+	 * @return CueSDKLibrary Library. Nullable if could not be loaded.
 	 */
 	static CueSDKLibrary LoadInstance()
 	{
@@ -41,10 +40,10 @@ public interface CueSDKLibrary extends Library
 
 	//Callbacks
 
-	interface CorsairRegisterKeypressCallback_callback extends Callback
+	interface CorsairEventHandler extends Callback
 	{
-		//@param keyId CorsairKeyId
-		void apply(Pointer context, byte keyId, boolean pressed);
+		//@param event CorsairEvent
+		void apply(Pointer context, JNACorsairEvent event);
 	}
 
 	//Utility
@@ -57,14 +56,12 @@ public interface CueSDKLibrary extends Library
 	//@return JNACorsairLedPositions
 	JNACorsairLedPositions CorsairGetLedPositions();
 
-	int CorsairGetLedIdForKeyName(byte keyName);
-
 	//Lighting
 
 	//@param ledsColors CorsairLedColor[]
-	boolean CorsairSetLedsColors(int size, Pointer ledsColors);
+	boolean CorsairSetLedsColors(int size, JNACorsairLedColor ledsColors);
 
-	boolean CorsairGetLedsColors(int size, Pointer ledsColors);
+	boolean CorsairGetLedsColors(int size, JNACorsairLedColor ledsColors);
 
 	//Control
 
@@ -72,13 +69,13 @@ public interface CueSDKLibrary extends Library
 
 	boolean CorsairReleaseControl(int accessMode);
 
-	int CorsairPerformProtocolHandshake();
+	JNACorsairProtocolDetails.ByValue CorsairPerformProtocolHandshake();
 
 	//Event Handling
 
-	boolean CorsairRegisterKeypressCallback(CorsairRegisterKeypressCallback_callback callback, Pointer context);
+	boolean CorsairUnsubscribeFromEvents(); //Unused but keeping it here just in case.
 
-	boolean CorsairUnsubscribeFromEvents();
+	boolean CorsairSubscribeForEvents(CorsairEventHandler onEvent, Pointer context);
 
 	//Error Handling
 
@@ -96,9 +93,10 @@ public interface CueSDKLibrary extends Library
 		void apply(Pointer voidPtr1, boolean bool1);
 	}
 
-	interface CorsairEventHandler extends Callback
+	interface CorsairRegisterKeypressCallback_callback extends Callback
 	{
-		void apply(Pointer context, Pointer event);
+		//@param keyId CorsairKeyId
+		void apply(Pointer context, byte keyId, boolean pressed);
 	}
 
 	boolean CorsairSetLedsColorsFlushBufferAsync(CueSDKLibrary.CorsairSetLedsColorsFlushBufferAsync_callback arg1, Pointer context);
@@ -109,8 +107,6 @@ public interface CueSDKLibrary extends Library
 
 	boolean CorsairSetLayerPriority(int priority);
 
-	boolean CorsairSubscribeForEvents(CueSDKLibrary.CorsairEventHandler onEvent, Pointer context);
-
 	boolean CorsairGetBoolPropertyValue(int deviceIndex, int propertyId, boolean propertyValue);
 
 	boolean CorsairGetInt32PropertyValue(int deviceIndex, int propertyId, IntBuffer propertyValue);
@@ -119,7 +115,11 @@ public interface CueSDKLibrary extends Library
 
 	boolean CorsairSetLedsColorsFlushBuffer();
 
+	int CorsairGetLedIdForKeyName(byte keyName);
+
 	boolean CorsairGetLedsColorsByDeviceIndex(int deviceIndex, int size, Pointer ledsColors);
+
+	boolean CorsairRegisterKeypressCallback(CorsairRegisterKeypressCallback_callback callback, Pointer context); //Works
 	*/
 	//endregion
 }

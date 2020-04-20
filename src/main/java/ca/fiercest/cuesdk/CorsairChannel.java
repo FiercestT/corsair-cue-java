@@ -1,20 +1,32 @@
 package ca.fiercest.cuesdk;
 
-import ca.fiercest.cuesdk.jna.JNACorsairChannelnfo;
+import ca.fiercest.cuesdk.jna.JNACorsairChannelDeviceInfo;
+import ca.fiercest.cuesdk.jna.JNACorsairChannelInfo;
 import lombok.Getter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Getter
-public class CorsairChannel extends FrontendObject<JNACorsairChannelnfo>
+public class CorsairChannel extends FrontendObject<JNACorsairChannelInfo>
 {
     public int totalLedsCount;
     public int devicesCount;
-    public CorsairChannelDevice[] devices;
+    public List<CorsairChannelDevice> devices = new ArrayList<>();
 
-    public CorsairChannel(JNACorsairChannelnfo parent)
+    public CorsairChannel(JNACorsairChannelInfo parent)
     {
         super(parent);
         this.totalLedsCount = parent.totalLedsCount;
         this.devicesCount = parent.devicesCount;
-        // todo map these this.devices = parent.devices.toArray()
+
+        //Map Devices
+        if(devicesCount != 0)
+        {
+            final JNACorsairChannelDeviceInfo[] devices = (JNACorsairChannelDeviceInfo[]) parent.devices.toArray(new JNACorsairChannelDeviceInfo[parent.devicesCount]);
+            for(JNACorsairChannelDeviceInfo info : devices)
+                this.devices.add(new CorsairChannelDevice(info));
+        }
+
     }
 }

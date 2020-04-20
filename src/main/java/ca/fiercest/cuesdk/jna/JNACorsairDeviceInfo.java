@@ -27,7 +27,6 @@ public class JNACorsairDeviceInfo extends Structure
     }
 
     public static class ByReference extends JNACorsairDeviceInfo implements Structure.ByReference {}
-
     public static class ByValue extends JNACorsairDeviceInfo implements Structure.ByValue {}
 }
 

@@ -12,7 +12,7 @@ import java.util.List;
 public class JNACorsairChannelsInfo extends Structure
 {
     public int channelsCount;
-    public JNACorsairChannelnfo.ByReference channels;
+    public JNACorsairChannelInfo.ByReference channels; //Array
 
     protected List<String> getFieldOrder()
     {
@@ -20,6 +20,5 @@ public class JNACorsairChannelsInfo extends Structure
     }
 
     public static class ByReference extends JNACorsairChannelsInfo implements Structure.ByReference {}
-
     public static class ByValue extends JNACorsairChannelsInfo implements Structure.ByValue {}
 }

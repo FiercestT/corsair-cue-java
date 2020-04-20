@@ -12,7 +12,7 @@ import java.util.List;
 public class JNACorsairLedPositions extends Structure
 {
     public int numberOfLed;
-    public JNACorsairLedPosition.ByReference pLedPosition;
+    public JNACorsairLedPosition.ByReference pLedPosition; //Array
 
     protected List<String> getFieldOrder()
     {

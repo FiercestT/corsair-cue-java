@@ -24,7 +24,6 @@ public class JNACorsairLedPosition extends Structure
     }
 
     public static class ByReference extends JNACorsairLedPosition implements Structure.ByReference {}
-
     public static class ByValue extends JNACorsairLedPosition implements Structure.ByValue {}
 }
 
