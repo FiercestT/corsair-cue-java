@@ -4,6 +4,8 @@ Corsair CUE SDK Wrapper for Java
 
 A Java Wrapper to connect to the Corsair ICUE (CUE) SDK. Control your corsair lighting from Java! Migrated to Gradle. Completely rewritten, easier to use, and with more features.
 
+### Note: Do not mess with DeviceIdHandler.
+
 ### Installation
 Currently, you can add the jar manually to the classpath from the [releases](https://github.com/FiercestT/corsair-cue-java/releases). I will be making a maven repo for it soon.
 
