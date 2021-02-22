@@ -52,8 +52,8 @@ public class TestCueSDK
     public void testColors() throws Exception
     {
         final Color R = new Color(255, 0, 0);
-        final Color B = new Color(0, 0, 255);
         final Color G = new Color(0, 255, 0);
+        final Color B = new Color(0, 0, 255);
         P("Colors", "Set Color of 'A' to Red for 1000ms");
         sdk.SetLedColor(LedId.CLK_A, R);
         Thread.sleep(500);

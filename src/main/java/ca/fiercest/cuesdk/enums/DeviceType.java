@@ -14,7 +14,9 @@ public enum DeviceType
     CDT_CommanderPro,
     CDT_LightingNodePro,
     CDT_MemoryModule,
-    CDT_Cooler;
+    CDT_Cooler,
+    CDT_Motherboard,
+    CDT_GraphicsCard;
 
     public static DeviceType byOrdinal(int ordinal)
     {

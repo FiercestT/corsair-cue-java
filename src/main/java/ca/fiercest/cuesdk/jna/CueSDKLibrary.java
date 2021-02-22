@@ -54,7 +54,7 @@ public interface CueSDKLibrary extends Library
 	JNACorsairDeviceInfo CorsairGetDeviceInfo(int deviceIndex);
 
 	//@return JNACorsairLedPositions
-	JNACorsairLedPositions CorsairGetLedPositions();
+	JNACorsairLedPositions.ByReference CorsairGetLedPositions();
 
 	//Lighting
 

@@ -18,13 +18,13 @@ import java.util.function.Consumer;
 @SuppressWarnings("ConstantConditions")
 public class CueSDK
 {
-    @Getter private CorsairProtocolDetails protocolDetails;
+    @Getter private final CorsairProtocolDetails protocolDetails;
 
     private Consumer<KeyCallbackEvent> keyPressCallback;
     private Consumer<DeviceRemovedEvent> deviceRemovedEventCallback;
 
-    private List<CorsairDevice> deviceCache = new ArrayList<>();
-    private List<CorsairLedPosition> positionCache = new ArrayList<>();
+    private final List<CorsairDevice> deviceCache = new ArrayList<>();
+    private final List<CorsairLedPosition> positionCache = new ArrayList<>();
 
     //region Constructors
     /**
@@ -116,7 +116,7 @@ public class CueSDK
     {
         if(!positionCache.isEmpty())
             return positionCache;
-        final JNACorsairLedPositions positions = CueSDKLibrary.INSTANCE.CorsairGetLedPositions();
+        final JNACorsairLedPositions.ByReference positions = CueSDKLibrary.INSTANCE.CorsairGetLedPositions();
 
         if(positions.numberOfLed < 0)
         {

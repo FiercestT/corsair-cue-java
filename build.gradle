@@ -4,7 +4,7 @@ plugins {
 }
 
 group 'ca.fiercest'
-version '1.01'
+version '1.21'
 sourceCompatibility = 1.8
 
 repositories {
@@ -43,7 +43,7 @@ jar {
 task DownloadCUESdk {
     doLast {
         download {
-            src 'http://downloads.corsair.com/Files/CUE/CUESDK_3.0.301.zip'
+            src 'http://downloads.corsair.com/Files/CUE/CUESDK_3.0.361.zip'
             dest file("$buildDir/sdk/cuesdk.zip")
         }
         println("Downloaded SDK")

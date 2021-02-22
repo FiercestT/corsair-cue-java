@@ -9,7 +9,10 @@ public enum CorsairChannelDeviceType
     CCDT_ML_Fan,
     CCDT_Strip,
     CCDT_DAP,
-    CCDT_Pump;
+    CCDT_Pump,
+    CCDT_QL_Fan,
+    CCDT_WaterBlock,
+    CCDT_SPPRO_Fan;
 
     public static CorsairChannelDeviceType byOrdinal(int ordinal)
     {
