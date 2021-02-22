@@ -1,7 +1,4 @@
-import ca.fiercest.cuesdk.Color;
-import ca.fiercest.cuesdk.CorsairDevice;
-import ca.fiercest.cuesdk.CorsairLedPosition;
-import ca.fiercest.cuesdk.CueSDK;
+import ca.fiercest.cuesdk.*;
 import ca.fiercest.cuesdk.enums.CorsairAccessMode;
 import ca.fiercest.cuesdk.enums.LedId;
 import org.junit.BeforeClass;
@@ -18,7 +15,7 @@ public class TestCueSDK
     private static CueSDK sdk;
 
     @BeforeClass
-    public static void setUp()
+    public static void setUp() throws NoServerException
     {
         sdk = new CueSDK(true);
     }

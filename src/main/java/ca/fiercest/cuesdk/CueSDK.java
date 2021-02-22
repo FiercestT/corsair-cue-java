@@ -29,8 +29,9 @@ public class CueSDK
     //region Constructors
     /**
      * Overloaded Constructor that does not use any access mode.
+     * @throws NoServerException If no Corsair server is connected, this exception will be thrown.
      */
-    public CueSDK()
+    public CueSDK() throws NoServerException
     {
         this(null);
     }
@@ -38,8 +39,9 @@ public class CueSDK
     /**
      * Overloaded Constructor that allows for exclusive access mode.
      * @param exclusiveAccessMode Start the SDK using the {@link CorsairAccessMode#CAM_ExclusiveLightingControl}.
+     * @throws NoServerException If no Corsair server is connected, this exception will be thrown.
      */
-    public CueSDK(boolean exclusiveAccessMode)
+    public CueSDK(boolean exclusiveAccessMode) throws NoServerException
     {
         this(exclusiveAccessMode ? CorsairAccessMode.CAM_ExclusiveLightingControl : null);
     }
@@ -47,13 +49,18 @@ public class CueSDK
     /**
      * (Base Constructor) Creates the CueSDK Object with a specific access mode.
      * @param accessMode The specific access mode will be applied on initialization.
+     * @throws NoServerException If no Corsair server is connected, this exception will be thrown.
      */
-    public CueSDK(CorsairAccessMode accessMode)
+    public CueSDK(CorsairAccessMode accessMode) throws NoServerException
     {
         protocolDetails = new CorsairProtocolDetails(CueSDKLibrary.INSTANCE.CorsairPerformProtocolHandshake());
 
         if(protocolDetails.getServerProtocolVersion() == 0)
+        {
+            if(CorsairError.byOrdinal(CueSDKLibrary.INSTANCE.CorsairGetLastError()) == CorsairError.CE_ServerNotFound)
+                throw new NoServerException();
             PrintError();
+        }
 
         if (protocolDetails.isBreakingChanges())
         {
