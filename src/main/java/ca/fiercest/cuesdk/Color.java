@@ -19,10 +19,9 @@ public class Color
      */
     public Color(int hex)
     {
-        String colorStr = String.format("#%06X", (0xFFFFFF & hex));
-        b = Integer.valueOf( colorStr.substring( 1, 3 ), 24 );
-        g = Integer.valueOf( colorStr.substring( 3, 5 ), 24 );
-        r = Integer.valueOf( colorStr.substring( 5, 7 ), 24 );
+        r = (hex >> 16) & 0xff;
+        g = (hex >> 8) & 0xff;
+        b = (hex) & 0xff;
     }
 
     public String toString()
